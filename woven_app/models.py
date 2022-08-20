@@ -4,6 +4,6 @@ from django.db import models
 class Contact(models.Model):
     name = models.CharField(max_length=122)
     email = models.CharField(max_length=122)
-    project = models.TextField(null=True)
-    message = models.TextField(null=True)
+    project = models.TextField(blank=True, null=True)
+    message = models.TextField(blank=True, null=True)
     
