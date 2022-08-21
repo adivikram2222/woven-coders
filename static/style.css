@@ -13,7 +13,7 @@ body {
     height: 100%;
     width: 100%;
     place-items: center;
-    background: -webkit-linear-gradient(left, #d5c8d6, #ffffff);
+    background: -webkit-linear-gradient(left, #71abf5, #ffffff);
 }
 
 ::selection {
