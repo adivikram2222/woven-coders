@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Apply for student unique ID</div>
+        <div class="content">
+            <form action="#">
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="text" placeholder="Enter your email" required style="width:40%">
+                    <i class="uil uil-envelope email-icon"></i>
+                </div>
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Full Name</span>
+                        <input type="text" placeholder="Enter your name" required>
+                    </div>
+                    
+                    
+                    <div class="input-box">
+                        <span class="details">Aadhaar card no.</span>
+                        <input type="password" placeholder="Enter Aadhaar card no." required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Phone Number</span>
+                        <input type="text" placeholder="Enter your number" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        <input type="password" placeholder="Enter your password" required>
+                    </div>
+
+
+                    <div class="input-box">
+                        <span class="details">Address</span>
+                        <input type="text" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Confirm Password</span>
+                        <input type="password" placeholder="Confirm your password" required>
+                    </div>
+                </div>
+                <center>
+                    <div class="button">
+                        <input type="submit" value="Register">
+                    </div>
+                </center>
+            </form>
+        </div>
+    </div>
+    <script>
+      const input = document.querySelector("input"),
+            emailIcon = document.querySelector(".email-icon")
+
+            input.addEventListener("keyup", () =>{
+              let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+              if(input.value === ""){
+                emailIcon.classList.replace("uil-check-circle", "uil-envelope");
+                return emailIcon.style.color = "#b4b4b4";
+              }
+              if(input.value.match(pattern)){
+                emailIcon.classList.replace("uil-envelope", "uil-check-circle");
+                return emailIcon.style.color = "#4bb543"
+              }
+              emailIcon.classList.replace("uil-check-circle", "uil-envelope");
+              emailIcon.style.color = "#de0611"
+            })
+    </script>
+
+</body>
+
+</html>

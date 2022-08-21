@@ -13,8 +13,9 @@ def index(request):
         contact = Contact(name=name, email=email, phoneno=phoneno, message = message)
         contact.save()
     return render(request, 'index.html')
-def login(request):
-    return render(request, 'login_signup.html')
+def signup(request):
+       
+    return render(request, 'signup.html')
 def contact(request):
     if request.method == "POST":
         name = request.POST.get('name')
@@ -24,3 +25,4 @@ def contact(request):
         contact = Contact(name=name, email=email, phoneno=phoneno, message=message)
         contact.save()
     return HTTPResponse('your message has been submitted successfully')
+
