@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body style="font-family: 'Montserrat', sans-serif; color: #212f3d">
+    <div style="display: inline-flex">
+      <h3 style="margin-left: 35px; font-size: 37px">Welcome {{ username }}</h3>
+
+      <a
+        style="
+          margin-top: 51px;
+          margin-left: 81px;
+          text-decoration: none;
+          color: #2980b9;
+        "
+        href="/home"
+        >Home</a
+      >
+    </div>
+    <div style="margin-bottom: 60px">
+      <h3>Your Details</h3>
+      <p>Username: <span style="color: #2980b9">{{ username }}</span></p>
+      <p>Name: <span style="color: #2980b9">{{ name }}</span></p>
+      <p>Email: <span style="color: #2980b9">{{ email }}</span></p>
+      <p>Contact No: <span style="color: #2980b9">{{ contact }}</span></p>
+      <p>Subjects: <span style="color: #2980b9">{{ subject }}</span>;</p>
+      <p>
+        Subscription:
+        <span style="color: #e32e66; font-weight: 600">{{ subscription }}</span>
+      </p>
+      <a href="/edit-details-student">Click here to edit Details</a>
+    </div>
+    <dir>
+      <h3>You are connected with following teachers</h3>
+
+      {% for teacher in connected_teachers %}
+      <div
+        style="
+          background-color: rgb(222, 231, 231);
+          padding: 5px;
+          border-radius: 4px;
+          width: 25rem;
+          display: block;
+        "
+      >
+        <p>Teacher Name: {{ teacher.teacher_name }}</p>
+        <p>Teacher's Contact No: {{ teacher.teacher_contact_number }}</p>
+        <p>Teacher's Email: {{ teacher.teacher_email }}</p>
+        <p>
+          Subject:
+          <span style="color: #e32e66; font-weight: 600"
+            >{{ teacher.sub }}</span
+          >
+        </p>
+        <form method="POST" action="checkview">
+          {% csrf_token %}
+          <input type="hidden" name="username" value="{{username}}" />
+          <input
+            type="hidden"
+            name="room_name"
+            value="{{username}}{{teacher.teacher_username}}"
+          />
+          <button
+            style="
+              border: 1px solid #212f3d;
+              background-color: #212f3d;
+              color: #ffffff;
+              border-radius: 4px;
+              width: 100px;
+              height: 30px;
+              cursor: pointer;
+            "
+          >
+            Chat
+          </button>
+        </form>
+        <br /><br />
+        {% endfor %}
+      </div>
+    </dir>
+  </body>
+</html>

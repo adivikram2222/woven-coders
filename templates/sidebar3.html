@@ -1,0 +1,532 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+
+
+<style>
+
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+html,
+body {
+  overflow-x: hidden;
+  height: 100%;
+}
+body {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  font-family: "Varela Round", sans-serif;
+}
+.header {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: none;
+  background: linear-gradient(90deg, #5cbcd1 0%, #187692 100%);
+  position: fixed;
+  height: 60px !important;
+  overflow: hidden;
+  z-index: 10;
+}
+.main {
+  margin: 0 auto;
+  display: block;
+  height: 100%;
+  margin-top: 60px;
+}
+.mainInner {
+  display: table;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.mainInner div {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 1.25px;
+}
+#sidebarMenu {
+  height: 100%;
+  position: fixed;
+  right: 0;
+  width: 250px;
+  margin-top: 60px;
+  transform: translateX(+250px);
+  transition: transform 250ms ease-in-out;
+  background: linear-gradient(180deg, #41b8d3 0%, #1c6581 100%);
+  z-index: 9999;
+}
+
+#sidebarMenu li a i{
+  margin: 0 8px;
+  font-size:1.5em;
+}
+.sidebarMenuInner {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  
+}
+.sidebarMenuInner li {
+  list-style: none;
+  color: rgb(43, 37, 37);
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 20px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size:15px;
+}
+.sidebarMenuInner li span {
+  display: block;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.sidebarMenuInner li a {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+input[type="checkbox"]:checked ~ #sidebarMenu {
+  transform: translateX(0);
+}
+
+input[type="checkbox"] {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  display: none;
+}
+.sidebarIconToggle {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: absolute;
+  z-index: 99;
+  height: 100%;
+  width: 100%;
+  top: 22px;
+  right: 15px;
+  height: 22px;
+  width: 22px;
+}
+.spinner {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+}
+.horizontal {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  position: relative;
+  float: right;
+  margin-top: 3px;
+}
+.diagonal.part-1 {
+  position: relative;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  float: right;
+}
+.diagonal.part-2 {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  position: relative;
+  float: right;
+  margin-top: 3px;
+}
+input[type="checkbox"]:checked ~ .sidebarIconToggle > .horizontal {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  opacity: 0;
+ 
+}
+input[type="checkbox"]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  transform: rotate(135deg);
+  margin-top: 8px;
+}
+input[type="checkbox"]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  transform: rotate(-135deg);
+  margin-top: -9px;
+}
+
+
+
+
+
+
+
+
+.navbar{
+
+position: fixed;
+display: flex;
+float: right;
+flex-direction: row;
+justify-content: space-between;
+top: 0;
+right: 30px;
+width: 100%;
+height: 60px;
+
+z-index: 1;
+transition: var(--tran-05);
+}
+.navbar-container{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+height: 100%;
+margin-left: 80px;
+right: 20px;
+}
+.navbar-menu{
+position: absolute;
+top: 0;
+right: 0;
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: right;
+padding: 0 20px;
+transition: var(--tran-05);
+}
+.navbar ul {
+float: right;
+}
+.navbar ul li {
+
+display: inline-block;
+list-style: none;
+margin-right: 20px;
+}
+.navbar-menu li a{
+
+color: rgb(245, 239, 239);
+font-size: 20px;
+font-weight: 500;
+text-decoration: none;
+transition: var(--tran-05);
+}
+
+.navbar-logo img{
+    width: 50px;
+}
+.navbar-menu #login{
+  font-size: 3rem;
+  color:#fff;
+  cursor: pointer;
+  margin:10px;
+}
+
+.navbar-menu #login:hover{
+  color:#444;
+}
+
+
+
+@media (max-width:768px){
+
+    .navbar-container{
+        margin-left: 0;
+        justify-content: left;
+        align-items: center;
+    }
+    .navbar-menu{
+        display: flex;
+        float: left;
+        justify-content: right;
+        right:40px; 
+        align-items: center;
+    }
+    .navbar ul {
+        display: none;
+    }
+    .navbar ul li {
+        display: none;
+    }
+    .navbar-menu li a{
+        display: none;
+    }
+    .navbar-logo img{
+        width: 30px;
+    }
+    .navbar-logo{
+      display: flex;
+      float: left;
+      left:20px;
+      margin: 0 40px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.login-form{
+  height:100%;
+  width:100%;
+  position: fixed;
+  top:-120%; left: 0;
+  z-index: 1000;
+  background:rgba(0,0,0,.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form.popup{
+  top:0;
+}
+
+.login-form form{
+  width:35rem;
+  background:#fff;
+  margin:0 2rem;
+  padding:1rem 3rem;
+  border-radius: .5rem;
+  box-shadow: 0 .1rem .3rem #333;
+  position: relative;
+}
+
+.login-form form h3{
+  font-size: 3rem;
+  color:#e99b1e;
+  padding:1rem 0;
+}
+
+.login-form form .box{
+  width:100%;
+  padding:1rem 0;
+  margin:1rem 0;
+  border-bottom: .2rem solid #666;
+  font-size: 1.6rem;
+  color:#333;
+  text-transform: none;
+}
+
+.login-form form .box::placeholder{
+  text-transform: capitalize;
+}
+
+.login-form form .box:focus{
+  border-color: #f39c12;
+}
+
+.login-form form .box:nth-child(3){
+  margin-bottom: 5rem;
+}
+
+.login-form form p{
+  font-size: 1.4rem;
+  color:#666;
+  padding:.5rem 0;
+}
+
+.login-form form p a{
+  color:#f39c12;
+}
+
+.login-form form .btn{
+  width: 100%;
+  margin:2rem 0;
+}
+
+.login-form form .btn:hover{
+  background:#444;
+}
+
+.login-form form .fa-times{
+  position: absolute;
+  top:1.5rem; right:2rem;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color:#999;
+}
+
+.login-form form .fa-times:hover{
+  color:#444;
+}
+
+
+
+
+
+</style>
+
+
+
+<body>
+    <div class="header">
+
+        <div class ="navbar">
+            <div class="navbar-container">
+                <div class="navbar-logo">
+                    <a href="index.html">
+                        <img src="{% static 'image/logo.png' %}" alt="logo">
+                    </a>
+                </div>
+                <div class="navbar-menu">
+                  {% comment %} <div id="login" class="fas fa-user-circle"></div> {% endcomment %}
+                  <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    {% comment %} <li><a href="services.html">Services</a></li> {% endcomment %}
+                    <li><a href="/contact">Contact</a></li>
+                    {% comment %} <li><a href="/login">Login</a></li> {% endcomment %}
+
+                    <li>
+                      {% if username != '' and entity_type == 'student' %}
+                      <p style="color:#000000"><a href="/student-home" >{{username}}</a><a href="/" class="get-started-btn" style="margin-left:10px;">logout</a></p>
+                      {% elif username != '' and entity_type == 'teacher' %}
+                      <p style="color:#000000"><a href="/teacher-home" >{{username}}</a><a href="/" class="get-started-btn" style="margin-left:10px;">logout</a></p>
+                      {% else %}
+                      <a href="/login" class="get-started-btn">login/signup</a>
+                      {% endif %}
+					</li>
+                  </ul>
+                </div>
+              </div>
+            </div> 
+
+            {% comment %} <div class="login-form">
+
+
+      
+              <form action="">
+         
+         
+                 <h3>login</h3>
+                 <input type="email" placeholder="username" class="box">
+                 <input type="password" placeholder="password" class="box">
+                 <p>forget password? <a href="#">click here</a></p>
+                 <p>don't have an account? <a href="/registera">register now</a></p>
+                 <input type="submit" class="btn" value="login">
+                 <i class="fas fa-times"></i>
+         
+         
+         
+             </form> 
+         
+         </div> {% endcomment %}
+
+
+    </div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+      <div class="spinner diagonal part-1"></div>
+      <div class="spinner horizontal"></div>
+      <div class="spinner diagonal part-2"></div>
+    </label>
+    <div id="sidebarMenu">
+      <ul class="sidebarMenuInner">
+        <li><a href="/"><i class="fas fa-home"></i>Home</a></li>
+          <li><a href="/indtutor"><i class="fas fa-sliders-h"></i>Become a Tutor</a></li>
+          <li><a href="#"><i class="fas fa-address-book"></i>Online Tution</a></li>
+          <li><a href="#"><i class="fas fa-cog"></i>Offline tution</a></li>
+          <li><a href="/about"><i class="fas fa-user"></i>About us</a></li>
+          <li><a href="/pricing"><i class="fas fa-globe-asia"></i>OUR pricing</a></li>
+          <li><a href="/contact"><i class="fas fa-envelope"></i>Contact us</a></li>
+          <li><a href="/login"><i class="fas fa-envelope"></i>Login</a></li>
+{% comment %}           
+          <div class="icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div> {% endcomment %}
+      </ul>
+    </div>
+    
+</div>
+</body>
+
+
+
+<script>
+
+
+
+
+
+
+  $(document).ready(function(){
+
+    $('#menu').click(function(){
+        $(this).toggleClass('fa-times');
+        $('.navbar').toggleClass('nav-toggle');
+    });
+
+    $('#login').click(function(){
+        $('.login-form').addClass('popup');
+    });
+
+    $('.login-form form .fa-times').click(function(){
+        $('.login-form').removeClass('popup');
+    });
+
+    $(window).on('load scroll',function(){
+
+        $('#menu').removeClass('fa-times');
+        $('.navbar').removeClass('nav-toggle');
+
+        $('.login-form').removeClass('popup');
+
+        $('section').each(function(){
+
+            let top = $(window).scrollTop();
+            let height = $(this).height();
+            let id = $(this).attr('id');
+            let offset = $(this).offset().top - 200;
+
+            if(top > offset && top < offset + height){
+                $('.navbar ul li a').removeClass('active');
+                $('.navbar').find(`[href="#${id}"]`).addClass('active');
+            }
+
+
+        });
+
+    });
+
+}); 
+
+
+
+
+
+</script>
+
+</html>

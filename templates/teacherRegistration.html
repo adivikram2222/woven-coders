@@ -1,0 +1,300 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+
+    <title>Individual & Institute</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <style type="text/css">
+       
+
+       body{
+        background-image: url('{%static 'image/21.jpg' %}');
+        /* background-position: center; */
+        background-size: cover;
+        background-repeat: no-repeat;
+       }
+        tab
+
+        .sign-in-up .left-inner-addon {
+            position: relative;
+        }
+
+        .sign-in-up .left-inner-addon input {
+            padding-left: 30px;
+        }
+
+        .sign-in-up .left-inner-addon i {
+            position: absolute;
+            padding: 10px 12px;
+            pointer-events: none;
+        }
+
+        .sign-in-up .right-inner-addon {
+            position: relative;
+        }
+
+        .sign-in-up .right-inner-addon input {
+            padding-right: 30px;
+        }
+
+        .sign-in-up .right-inner-addon i {
+            position: absolute;
+            right: 0px;
+            padding: 17px 12px;
+            pointer-events: none;
+        }
+
+        .sign-in-up .click2select {
+            text-align: center;
+            margin-top: 1em;
+        }
+
+        .sign-in-up .paywith {
+            padding: 12px 12px 0 0;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .btn-danger,
+        .btn-danger:hover {
+            background-color: #000 !important;
+            border-color: #333399 !important;
+        }
+
+        .btn-primary,
+        .btn-primary:hover {
+            background-color: #316c60 !important;
+            border-color: #316c60 !important;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        .btn {
+            border-radius: 0px;
+        }
+
+        .fromborder {
+            background-color: #f3f1eb;
+            border-radius: 15px;
+            height: 100%;
+            width: 448px;
+            position: relative;
+            padding: 16px;
+            margin-top: 46px;
+            overflow: hidden;
+        }
+
+        .formstar {
+            text-align: center;
+        }
+
+        .fromh2 {
+            color: rgb(17, 16, 16);
+        }
+
+        .input-lg {
+            font-size: 13px !important;
+            color: #000 !important;
+        }
+
+        .selectfrom {
+            width: 100%;
+            height: 47px;
+        }
+        .form-control{
+            border: 1px solid rgba(0, 0, 0, 0.438);
+            border-radius: 5px !important;
+
+        }
+    </style>
+</head>
+
+<body >
+    <!-- partial:index.partial.html -->
+    <div class="container sign-in-up">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="formstar">
+                    <div class="fromborder">
+                        <br />
+                        <!-- Nav tabs -->
+                        <div class="text-center">
+                            <div class="btn-group">
+                                <a href="#new" role="tab" data-toggle="tab" class="big btn btn-primary"><i
+                                        class="fa fa-plus"></i> I am an Individual</a>
+                                <a href="#user" role="tab" data-toggle="tab" class="big btn btn-danger"><i
+                                        class="fa fa-user"></i> I run an Institute</a>
+                            </div>
+                        </div>
+                        <!--  <p class="click2select">Click to select</p> -->
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="new">
+                                <br />
+                                <h2 class="fromh2">I am an Individual</h2>
+                                <br />
+
+                                <form id="regform" action="/add_teachers" method="post" autocomplete="off">
+                                    <fieldset>
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <div class="right-inner-addon">
+                                                <input class="form-control input-lg" placeholder="Enter your First name"
+                                                    type="text" required="" name="firstname" />
+                                                <br />
+                                                <input class="form-control input-lg" placeholder="Enter your Last name"
+                                                    type="text" required="" name="lastname" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="right-inner-addon">
+                                                <input class="form-control input-lg" placeholder="Enter your Email Eg:"
+                                                    type="text" name="email" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <select style="height: 47px">
+                                                    <option>India(+91)</option>
+                                                    <option>India(+91)</option>
+                                                    <option>India(+91)</option>
+                                                    <option>India(+91)</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-group">
+                                                    <div class="right-inner-addon">
+                                                        <input class="form-control input-lg"
+                                                            placeholder="Enter your Phone Number" id="" type="text"
+                                                            name="contactno" required="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="right-inner-addon">
+                                                <select class="selectfrom" name="gender" required="">
+                                                    <option>Select Gender</option>
+                                                    <option>Male</option>
+                                                    <option>Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="right-inner-addon">
+                                                <input class="form-control input-lg"
+                                                    placeholder="Enter the main category you Teach, more could be added later"
+                                                    id="" name="subject" type="text" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="right-inner-addon">
+                                                <input class="form-control input-lg"
+                                                    placeholder="Enter Pincode or Locality Eg:" id="" name="zipcode"
+                                                    type="text" required="" /><br />
+                                                <input class="form-control input-lg" placeholder="please enter username"
+                                                    id="" type="text" required="" name="username"><br />
+                                                <input class="form-control input-lg" placeholder="Please set a password"
+                                                    id="" type="text" required="" name="password">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <hr />
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active text-center" id="pp">
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                                <i class="fa fa-plus"></i> Create Profile
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="tab-pane fade" id="user">
+                                <br />
+                                <h2 class="fromh2">I run an Institute</h2>
+                                <br />
+                                <form>
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <div class="right-inner-addon">
+                                                <input class="form-control input-lg" placeholder="Institute name e.g."
+                                                    type="text" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="right-inner-addon">
+                                                <input class="form-control input-lg"
+                                                    placeholder="Owner or Contact Person's " type="text" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="right-inner-addon">
+                                                <input class="form-control input-lg" placeholder="Enter your Email E.g:"
+                                                    type="text" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <select style="height: 47px">
+                                                    <option>India(+91)</option>
+                                                    <option>India(+91)</option>
+                                                    <option>India(+91)</option>
+                                                    <option>India(+91)</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-group">
+                                                    <div class="right-inner-addon">
+                                                        <input class="form-control input-lg"
+                                                            placeholder="Enter your Phone Number" id="" type="text"
+                                                            required="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="right-inner-addon">
+                                                <input class="form-control input-lg"
+                                                    placeholder="Enter the main category you Teach, more could be added later"
+                                                    type="text" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="right-inner-addon">
+                                                <input class="form-control input-lg"
+                                                    placeholder="Enter Main Branch Pincode Or Locality" type="text"
+                                                    required="" />
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <hr />
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active text-center" id="pp">
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                                <i class="fa fa-plus"></i> Create Profile
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    <!-- partial -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+</body>
+
+</html>

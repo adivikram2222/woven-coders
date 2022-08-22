@@ -1,0 +1,240 @@
+{% load static %}
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Pricing Table</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+<link rel="stylesheet" href="{%static 'css/price.css' %}">
+
+  
+</head>
+
+<body>
+  
+<div id="generic_price_table">   
+<section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!--PRICE HEADING START-->
+                    <div class="price-heading clearfix">
+                        <h1> Pricing Table For Students</h1>
+                    </div>
+                    <!--//PRICE HEADING END-->
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            
+            <!--BLOCK ROW START-->
+            <div class="row">
+                <div class="col-md-4">
+                
+                	<!--PRICE CONTENT START-->
+                    <div class="generic_content clearfix">
+                        
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+                        
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+                            
+                            	<!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>Basic</span>
+                                </div>
+                                <!--//HEAD END-->
+                                
+                            </div>
+                            <!--//HEAD CONTENT END-->
+                            
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">	
+                                <span class="price">
+                                    <span class="sign">&#8377 </span>
+                                    <span class="currency">99</span>
+                                    <span class="cent">.00</span>
+                                    <span class="month"></span>
+                                </span>
+                            </div>
+                            <!--//PRICE END-->
+                            
+                        </div>                            
+                        <!--//HEAD PRICE DETAIL END-->
+                        
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                        	<ul>
+                            	<li><span>1 month</span> Validity</li>
+                                <li><span>10 Teachers of particular subject</span> Can connect</li>
+                                <li><span>20 Teachers</span> profile per week</li>
+                                <!-- <li><span>7</span> Host Domain</li>
+                                <li><span>24/7</span> Support</li> -->
+                            </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+                        
+                        <!--BUTTON START-->
+                        <form action="subscription-plan" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="subscription_type" value="basic" />
+                            <!-- <input type="hidden" name="teachersEmail" value="None" /> -->
+                            <script src="https://checkout.razorpay.com/v1/checkout.js" data-key={{ razorpay_key_id }}
+                                data-amount="9900" data-currency="INR" data-order_id="{{payment.id}}" data-buttontext="Sign up"
+                                data-name="Wisdomtribes" data-description="subscription-plan"
+                                data-image="static/image/logo.png" data-prefill.name="" data-prefill.email=""
+                                data-theme.color="#F37254">
+                            </script>
+                        </form>
+                        <!--//BUTTON END-->
+                        
+                    </div>
+                    <!--//PRICE CONTENT END-->
+                        
+                </div>
+                
+                <div class="col-md-4">
+                
+                	<!--PRICE CONTENT START-->
+                    <div class="generic_content active clearfix">
+                        
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+                        
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+                            
+                            	<!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>Standard</span>
+                                </div>
+                                <!--//HEAD END-->
+                                
+                            </div>
+                            <!--//HEAD CONTENT END-->
+                            
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">	
+                                <span class="price">
+                                    <span class="sign">&#8377</span>
+                                    <span class="currency">280</span>
+                                    <span class="cent">.00</span>
+                                    <span class="month"></span>
+                                </span>
+                            </div>
+                            <!--//PRICE END-->
+                            
+                        </div>                            
+                        <!--//HEAD PRICE DETAIL END-->
+                        
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                        	<ul>
+                            	<li><span>3 month</span> Validity</li>
+                                <li><span>35 Teachers of 3 subjects</span> Can connect</li>
+                                <li><span>50 Teachers</span> profile per week</li>
+                                <!-- <li><span>7</span> Host Domain</li>
+                                <li><span>24/7</span> Support</li> -->
+                            </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+                        
+                        <!--BUTTON START-->
+                        <form action="subscription-plan" method="POST">
+                            <input type="hidden" name="subscription_type" value="standerd" />
+                            <!-- <input type="hidden" name="teachersEmail" value="None" /> -->
+                            <script src="https://checkout.razorpay.com/v1/checkout.js" data-key={{ razorpay_key_id }}
+                                data-amount="28000" data-currency="INR" data-order_id="{{payment.id}}" data-buttontext="Sign up"
+                                data-name="Wisdomtribes" data-description="subscription-plan"
+                                data-image="static/image/logo.png" data-prefill.name="" data-prefill.email=""
+                                data-theme.color="#F37254">
+                            </script>
+                        </form>
+                        <!--//BUTTON END-->
+                        
+                    </div>
+                    <!--//PRICE CONTENT END-->
+                        
+                </div>
+                <div class="col-md-4">
+                
+                	<!--PRICE CONTENT START-->
+                    <div class="generic_content clearfix">
+                        
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+                        
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+                            
+                            	<!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>Unlimited</span>
+                                </div>
+                                <!--//HEAD END-->
+                                
+                            </div>
+                            <!--//HEAD CONTENT END-->
+                            
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">	
+                                <span class="price">
+                                    <span class="sign">&#8377</span>
+                                    <span class="currency">550</span>
+                                    <span class="cent">.00</span>
+                                    <span class="month"></span>
+                                </span>
+                            </div>
+                            <!--//PRICE END-->
+                            
+                        </div>                            
+                        <!--//HEAD PRICE DETAIL END-->
+                        
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                        	<ul>
+                            	<li><span>6 month</span> Validity</li>
+                                <li><span>70 + Teachers</span> Can connect</li>
+                                <li><span>Unlimited</span> profile per week</li>
+                                <!-- <li><span>7</span> Host Domain</li>
+                                <li><span>24/7</span> Support</li> -->
+                            </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+                        
+                        <!--BUTTON START-->
+                        <form action="subscription-plan" method="POST">
+                            <input type="hidden" name="subscription_type" value="premium" />
+                            <!-- <input type="hidden" name="teachersEmail" value="None" /> -->
+                            <script src="https://checkout.razorpay.com/v1/checkout.js" data-key={{ razorpay_key_id }}
+                                data-amount="55000" data-currency="INR" data-order_id="{{payment.id}}" data-buttontext="Sign up"
+                                data-name="Wisdomtribes" data-description="subscription-plan"
+                                data-image="static/image/logo.png" data-prefill.name="" data-prefill.email=""
+                                data-theme.color="#F37254">
+                            </script>
+                        </form>
+                        <!--//BUTTON END-->
+                        
+                    </div>
+                    <!--//PRICE CONTENT END-->
+                        
+                </div>
+            </div>	
+            <!--//BLOCK ROW END-->
+            
+        </div>
+    </section>             
+	
+</div>
+  
+  
+</body>
+</html>

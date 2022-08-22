@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="m.css">
+</head>
+
+<body>
+    
+
+    <!-- multistep registration form -->
+
+    <div>
+        <form id="regform" action="/add_teachers" method="post" autocomplete="off">
+            {% csrf_token %}
+            <h1>Register as an indivisual Tutor</h1>
+
+            <!-- first tab  -->
+            <div id="name" class="formcontent  tab">
+                <h3>Name</h3>
+                <input type="text" placeholder="first name" id="fname" name="firstname">
+                <input type="text" placeholder="Last name" id="lname" name="lastname">
+                <!-- gender -->
+                <h3>Gender</h3>
+                <input type="text" placeholder="Gender" id="gender" name="gender">
+                <!-- <organisation -->
+                 <h3>Teaching</h3>   
+                <input type="text " placeholder="Enter the main category you teach" name="subject">    
+    
+            </div>
+
+            <!-- second tab  -->
+            <div id="contact" class="formcontent   tab ">
+                <h3>Coantact</h3>
+                <input type="text" placeholder="Phone number" id="phone" name="contactno">
+                <input type="text" placeholder="Email" id="email" name="email">
+                <input type="text" placeholder="Please enter your loacality pincode" id="address" name="zipcode">
+
+            </div>
+
+            <!-- third tab  -->
+            <div id="login" class="formcontent  tab ">
+                <h3>Login</h3>
+                <input type="text" placeholder="Username" id="username" name="username">
+                <input type="text" placeholder="Password" id="password" name="password">
+
+            </div>
+            <!-- previous and next button  -->
+            <div style="overflow: auto;">
+                <div style="text-align: center;">
+                    <div id="buttons">
+                        <!-- <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button> -->
+                        <button type="submit">Register</button>
+                    </div>
+                </div>
+            </div>
+            <!-- progress bar  -->
+            <div id="progressbar">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+            </div>
+
+        </form>
+    </div> 
+</body>
+
+<script src="script.js"></script>
+
+</html>
