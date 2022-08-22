@@ -20,8 +20,9 @@ def apply(request):
         aadhaar = request.POST.get('aadhaar')
         phoneno = request.POST.get('phoneno')
         password = request.POST.get('password')
+        # cpassword = request.POST.get('cpassword')
         address = request.POST.get('address')
-        signup = Signup(email=email, fullname=fullname, aadhaar=aadhaar, phoneno=phoneno, password=password, address=address)
+        signup = Signup(email=email, fullname=fullname, aadhaar=aadhaar, phoneno=phoneno, password=password, address=address )
         signup.save()
     return render(request, 'signup.html')
 def contact(request):
@@ -33,4 +34,7 @@ def contact(request):
         contact = Contact(name=name, email=email, phoneno=phoneno, message=message)
         contact.save()
     return HTTPResponse('your message has been submitted successfully')
+
+
+
 
