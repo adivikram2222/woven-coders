@@ -5,7 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'signup.css' %}">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -13,34 +15,34 @@
     <div class="container">
         <div class="title">Apply for student unique ID</div>
         <div class="content">
-            <form action="#">
+            <form method = "post" action = "/apply/">
+                {% csrf_token %}
                 <div class="input-box">
                     <span class="details">Email</span>
-                    <input type="text" placeholder="Enter your email" required style="width:40%">
+                    <input type="text" placeholder="Enter your email" required style="width:40%" id="email">
                     <i class="uil uil-envelope email-icon"></i>
                 </div>
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Full Name</span>
-                        <input type="text" placeholder="Enter your name" required>
+                        <input type="text" placeholder="Enter your name" required id="fullname">
                     </div>
-
-
+                    
+                    
                     <div class="input-box">
-                        <span class="details">Addhar card no.</span>
-                        <input type="password" placeholder="Enter Addhar card no." required>
+                        <span class="details">Aadhaar card no.</span>
+                        <input type="password" placeholder="Enter Aadhaar card no." required id="aadhaar">
                     </div>
 
                     <div class="input-box">
                         <span class="details">Phone Number</span>
-                        <input type="text" placeholder="Enter your number" required>
+                        <input type="text" placeholder="Enter your number" required id="phoneno">
                         <br/>
                         <br>
 
                         <span class="details">Address</span>
-                        <input type="text" placeholder="Enter your name" required>
+                        <input type="text" placeholder="Enter your name" required id="address">
                     </div>
-
 
                     <div class="input-box">
                         <span class="details">password</span>
@@ -49,37 +51,36 @@
                         <input type="password" id="c-password" placeholder="Confirm your Password">
                         <p id="message"></p>
                     </div>
-
-                    <center>
-                        <div class="button" style="width:1900%;">
-                            <input type="button" onclick="checkPassword()" value="SUBMIT" />
-                        </div>
-                    </center>
-
                 </div>
+                <center>
+                    <div class="button" style="width:1900%;">
+                        <input type="submit" value="Register" id="button">
+                    </div>
+                </center>
+
             </form>
         </div>
     </div>
     <script>
-        const input = document.querySelector("input"),
+      const input = document.querySelector("input"),
             emailIcon = document.querySelector(".email-icon")
 
-        input.addEventListener("keyup", () => {
-            let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            input.addEventListener("keyup", () =>{
+              let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
-            if (input.value === "") {
+              if(input.value === ""){
                 emailIcon.classList.replace("uil-check-circle", "uil-envelope");
                 return emailIcon.style.color = "#b4b4b4";
-            }
-            if (input.value.match(pattern)) {
+              }
+              if(input.value.match(pattern)){
                 emailIcon.classList.replace("uil-envelope", "uil-check-circle");
                 return emailIcon.style.color = "#4bb543"
-            }
-            emailIcon.classList.replace("uil-check-circle", "uil-envelope");
-            emailIcon.style.color = "#de0611"
-        })
+              }
+              emailIcon.classList.replace("uil-check-circle", "uil-envelope");
+              emailIcon.style.color = "#de0611"
+            })
 
-        function checkPassword() {
+            function checkPassword() {
             var password = document.getElementById("password").value;
             var cPassword = document.getElementById("c-password").value;
             var message = document.getElementById("message");
