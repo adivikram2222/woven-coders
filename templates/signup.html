@@ -15,48 +15,49 @@
     <div class="container">
         <div class="title">Apply for student unique ID</div>
         <div class="content">
-            <form action="#">
+            <form method = "post" action = "/apply/">
+                {% csrf_token %}
                 <div class="input-box">
                     <span class="details">Email</span>
-                    <input type="text" placeholder="Enter your email" required style="width:40%">
+                    <input type="text" placeholder="Enter your email" required style="width:40%" id="email">
                     <i class="uil uil-envelope email-icon"></i>
                 </div>
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Full Name</span>
-                        <input type="text" placeholder="Enter your name" required>
+                        <input type="text" placeholder="Enter your name" required id="fullname">
                     </div>
                     
                     
                     <div class="input-box">
                         <span class="details">Aadhaar card no.</span>
-                        <input type="password" placeholder="Enter Aadhaar card no." required>
+                        <input type="password" placeholder="Enter Aadhaar card no." required id="aadhaar">
                     </div>
 
                     <div class="input-box">
                         <span class="details">Phone Number</span>
-                        <input type="text" placeholder="Enter your number" required>
+                        <input type="text" placeholder="Enter your number" required id="phoneno">
                     </div>
 
                     <div class="input-box">
                         <span class="details">Password</span>
-                        <input type="password" placeholder="Enter your password" required>
+                        <input type="password" placeholder="Enter your password" required id="password">
                     </div>
 
 
                     <div class="input-box">
                         <span class="details">Address</span>
-                        <input type="text" placeholder="Enter your name" required>
+                        <input type="text" placeholder="Enter your name" required id="address">
                     </div>
 
-                    <div class="input-box">
+                    {% comment %} <div class="input-box">
                         <span class="details">Confirm Password</span>
-                        <input type="password" placeholder="Confirm your password" required>
-                    </div>
+                        <input type="password" placeholder="Confirm your password" required id="confirmpassword">
+                    </div> {% endcomment %}
                 </div>
                 <center>
                     <div class="button">
-                        <input type="submit" value="Register">
+                        <input type="submit" value="Register" id="button">
                     </div>
                 </center>
             </form>

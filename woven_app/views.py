@@ -1,7 +1,7 @@
 from http.client import HTTPResponse
 from django.http import HttpRequest
 from django.shortcuts import render
-from woven_app.models import Contact
+from woven_app.models import Contact, Signup
 
 # Create your views here.
 def index(request):
@@ -13,8 +13,16 @@ def index(request):
         contact = Contact(name=name, email=email, phoneno=phoneno, message = message)
         contact.save()
     return render(request, 'index.html')
-def signup(request):
-       
+def apply(request):
+    if request.method == "POST": 
+        email = request.POST.get('email')
+        fullname = request.POST.get('fullname')
+        aadhaar = request.POST.get('aadhaar')
+        phoneno = request.POST.get('phoneno')
+        password = request.POST.get('password')
+        address = request.POST.get('address')
+        signup = Signup(email=email, fullname=fullname, aadhaar=aadhaar, phoneno=phoneno, password=password, address=address)
+        signup.save()
     return render(request, 'signup.html')
 def contact(request):
     if request.method == "POST":

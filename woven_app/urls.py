@@ -4,7 +4,7 @@ from woven_app import views
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('apply/', views.signup, name="login"),
+    path('apply/', views.apply, name="login"),
     path('contact/',views.contact,name="contact"),
     
     
