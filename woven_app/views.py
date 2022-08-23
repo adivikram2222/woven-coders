@@ -34,6 +34,16 @@ def contact(request):
         contact = Contact(name=name, email=email, phoneno=phoneno, message=message)
         contact.save()
     return HTTPResponse('your message has been submitted successfully')
+def add_education_details(request):
+    if request.method == "POST":
+        schoolname = request.POST.get('schoolname')
+        previousacademic = request.POST.get('previousacademic')
+        profession = request.POST.get('profession')
+        standard = request.POST.get('standard')
+        board_university = request.POST.get('bo')
+
+
+
 
 
 

@@ -19,7 +19,7 @@
     <div class="container">
         <header>Educational details</header>
 
-        <form action="#">
+        <form method = "post" action = '/'>
             <div class="form first">
                 <div class="details personal">
                     <span class="title">Personal Details</span>
@@ -34,11 +34,11 @@
 
                         <div class="input-field">
                                 <label>previous acedemic percentage</label>
-                                <input type="number" placeholder="Enter persentage" required id="previous">
+                                <input type="number" placeholder="Enter persentage" required id="previousacademic" name="previousacademic">
                             </div>
                         <div class="input-field">
-                            <label>Profaction</label>
-                            <select required>
+                            <label>Profession</label>
+                            <select required id="profession" name="profession">
                                 <option disabled selected>Select Profaction</option>
                                 <option>Student</option>
                                 <option>Job</option>
@@ -48,7 +48,7 @@
 
                         <div class="input-field">
                             <label>Standard</label>
-                            <select required>
+                            <select required id="standard" name="standard">
                                 <option disabled selected>Select Standard</option>
                                 <option>Till 9th</option>
                                 <option>10th</option>
@@ -67,7 +67,7 @@
 
                         <div class="input-field">
                             <label>Board/University Name </label>
-                            <select required>
+                            <select required id="board_university" name="board_university">
                                 <option disabled selected>Select Board/university</option>
                                 <option>CBSE</option>
                                 <option>ICSE</option>
