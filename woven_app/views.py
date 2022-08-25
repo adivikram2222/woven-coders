@@ -1,7 +1,7 @@
 from http.client import HTTPResponse
 from django.http import HttpRequest
 from django.shortcuts import render
-from woven_app.models import Contact, Signup
+from woven_app.models import Contact, Signup, Addeducationdetails
 
 # Create your views here.
 def index(request):
@@ -34,16 +34,16 @@ def contact(request):
         contact = Contact(name=name, email=email, phoneno=phoneno, message=message)
         contact.save()
     return HTTPResponse('your message has been submitted successfully')
-def add_education_details(request):
+def addeducationdetails(request):
     if request.method == "POST":
         schoolname = request.POST.get('schoolname')
         previousacademic = request.POST.get('previousacademic')
         profession = request.POST.get('profession')
         standard = request.POST.get('standard')
         board_university = request.POST.get('board_university')
-        add_education_details = add_education_details(schoolname=schoolname, previousacademic=previousacademic, profession=profession,standard=standard, board_university=board_university)
-        add_education_details.save()
-
+        addeducationdetails = Addeducationdetails(schoolname=schoolname, previousacademic=previousacademic, profession=profession,standard=standard, board_university=board_university)
+        addeducationdetails.save()
+    return render(request, 'eduform.html')
 
 
 

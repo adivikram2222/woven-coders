@@ -17,12 +17,13 @@ class Signup(models.Model):
     # cpassword = models.CharField(max_length=12, blank=True, null=True)
     address = models.CharField(max_length=200)
 
-class add_education_details(models.Model):
+class Addeducationdetails(models.Model):
     schoolname = models.CharField(max_length=50)
     previousacademic = models.CharField(max_length=122)
-    profession = models.CharField(null=True)
-    standard = models.CharField(null=True)
-    board_university = models.CharField(null=True)
+    profession = models.TextField(null=True)
+    standard = models.TextField(null=True)
+    board_university = models.TextField(null=True)
+
 
 
 

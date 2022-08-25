@@ -5,8 +5,8 @@ from woven_app import views
 urlpatterns = [
     path('', views.index, name="index"),
     path('apply/', views.apply, name="login"),
-    path('contact/',views.contact,name="contact"),
-    path('add_education_details/',views.add_education_details,name="add_education_details"),
+    path('contact/', views.contact,name="contact"),
+    path('addeducationdetails/', views.addeducationdetails,name="addeducationdetails"),
     
     
 ]

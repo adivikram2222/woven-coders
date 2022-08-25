@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+{% load static %}
 <html lang="en">
 
 <head>
@@ -7,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="eduform.css">
+    <link rel="stylesheet" href="{% static 'eduform.css' %}">
 
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -19,7 +21,9 @@
     <div class="container">
         <header>Educational details</header>
 
-        <form method = "post" action = '/'>
+        <form method = "post" action = '/addeducationdetails/'>
+            {% csrf_token %}
+
             <div class="form first">
                 <div class="details personal">
                     <span class="title">Personal Details</span>
