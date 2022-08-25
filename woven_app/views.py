@@ -41,6 +41,9 @@ def add_education_details(request):
         profession = request.POST.get('profession')
         standard = request.POST.get('standard')
         board_university = request.POST.get('board_university')
+        add_education_details = add_education_details(schoolname=schoolname, previousacademic=previousacademic, profession=profession,standard=standard, board_university=board_university)
+        add_education_details.save()
+
 
 
 
