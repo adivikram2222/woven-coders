@@ -1,7 +1,7 @@
 from http.client import HTTPResponse
 from django.http import HttpRequest
 from django.shortcuts import render
-from woven_app.models import Contact, Signup, Addeducationdetails
+from woven_app.models import Contact, Signup, Addeducationdetails, Parentaldetails
 
 # Create your views here.
 def index(request):
@@ -45,7 +45,18 @@ def addeducationdetails(request):
         addeducationdetails.save()
     return render(request, 'eduform.html')
 
-
+def parentaldetails(request):
+    if request.method == "POST":
+        fathername = request.POST.get('fathername')
+        fatheroccupation = request.POST.get('fatheroccupation')
+        fatherphonenumber = request.POST.get('fatherphonenumber')
+        mothername = request.POST.get('mothername')
+        motheroccupation = request.POST.get('motheroccupation')
+        motherphonenumber = request.POST.get('motherphonenumber')
+        address = request.POST.get('address')
+        parentaldetails = Parentaldetails(fathername=fathername, fatheroccupation=fatheroccupation, fatherphonenumber=fatherphonenumber, mothername=mothername, motheroccupation=motheroccupation, motherphonenumber=motherphonenumber, address=address )
+        parentaldetails.save()
+    return render(request, 'parentalform.html')
 
 
 

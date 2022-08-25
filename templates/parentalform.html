@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="{% static 'parentalform.css' %}">
+
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!--<title>Responsive Regisration Form </title>-->
+</head>
+
+<body>
+    <div class="container">
+        <header>Registration</header>
+
+        <form method="post" action = "/parentaldetails/">
+            {% csrf_token %}
+            <div class="form first">
+                <div class="details family">
+                    <span class="title">Family Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Father Name</label>
+                            <input type="text" placeholder="Enter father name" required  id= "fathername" name="fathername">
+                        </div>
+
+                        <div class="input-field">
+                            <label>fathers occupation</label>
+                            <input type="text" placeholder="Enter fathers occupation" required id ="fatheroccupation" name="fatheroccupation">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Fathers Phone no.</label>
+                            <input type="number" placeholder="Enter Fathers Phone no." required id="fatherphonenumber" name="fatherphonenumber">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mother Name</label>
+                            <input type="text" placeholder="Enter mother name" required id="mothername" name="mothername">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mothers occupation</label>
+                            <input type="text" placeholder="Enter Mothers occupation" required id="motheroccupation" name="motheroccupation">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mothers Phone no.</label>
+                            <input type="number" placeholder="Enter mothers Phone no." required id="motherphonenumber" name="motherphonenumber">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Address</label>
+                            <input type="text" placeholder="Enter Address" required id="address" name="address">
+                        </div>
+
+                        
+                    </div>
+                    <button class="sumbit">
+                        <span class="btnText">Submit</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div>
+            </div>
+    </div>
+    </form>
+    </div>
+
+    <script src="parentalform.js"></script
+</body>
+</html>

@@ -24,6 +24,15 @@ class Addeducationdetails(models.Model):
     standard = models.TextField(null=True)
     board_university = models.TextField(null=True)
 
+class Parentaldetails(models.Model):
+    fathername = models.CharField(max_length=20)
+    fatheroccupation = models.CharField(max_length=30)
+    fatherphonenumber = models.CharField(max_length=12)
+    mothername = models.CharField(max_length=20)
+    motheroccupation = models.CharField(max_length=30)
+    motherphonenumber = models.CharField(max_length=12)
+    address = models.CharField(max_length=50)
+
 
 
 
